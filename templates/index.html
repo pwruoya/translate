@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP Interactive UI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <h1>NLP System</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Service</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <form id="nlp-form">
+                <label for="inputText">Enter text:</label>
+                <input type="text" id="inputText" name="inputText" placeholder="Enter text to translate...">
+                <button type="button" onclick="translateText()">Translate</button>
+
+            </form>
+            <div id="outputText" class="card">
+                <h2>Model Output:</h2>
+                <div id="outputContent" class="output"></div>
+            </div>
+            
+            </div>
+            <script>
+                async function translateText() {
+                    const inputText = document.getElementById('inputText').value;
+                    console.log("Input text:", inputText);  // Debug line
+                    const response = await fetch('http://127.0.0.1:5000/translate', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ text: inputText })
+                    });
+                    const data = await response.json();
+                    console.log("Response data:", data);  // Debug line
+                    document.getElementById('outputText').textContent = data.translated_text;
+                }
+            </script>
+            
+
+
+
+            <!-- <p id="model-output"></p> -->
+        </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 NLP Interactive System</p>
+        </div>
+    </footer>
+
+    <!-- <script>
+        document.getElementById('nlp-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const userInput = document.getElementById('user-input').value;
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: userInput })
+            });
+            const result = await response.json();
+            document.getElementById('model-output').innerText = result.output;
+        });
+    </script> -->
+</body>
+
+</html>

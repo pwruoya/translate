@@ -1,0 +1,223 @@
+/* Ensure the whole page uses a flexible box layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar styling */
+nav {
+    background-color: #4CAF50;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav h1 {
+    color: white;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center the list items */
+    flex-grow: 1; /* Allow ul to grow */
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Container should adapt to screen size */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Main content area should fill remaining space */
+main {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+/* Form layout */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label, form input, form button {
+    margin: 0.5rem 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+form input, form button {
+    padding: 0.5rem;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Output card styling */
+#output-card {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+#output-card:hover {
+    transform: translateY(-5px);
+}
+
+#output-card h2 {
+    margin-top: 0;
+}
+
+#output-card p {
+    color: #333;
+    font-size: 1.2rem;
+}
+
+/* Footer should stick to the bottom */
+footer {
+    background-color: #f1f1f1;
+    padding: 1rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 100%; /* Full width on small screens */
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    form label, form input, form button {
+        width: 90%;
+    }
+
+    nav, footer {
+        padding: 0.5rem;
+    }
+
+    nav h1, footer p {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 1rem 0;
+    }
+}
+/* Reset default padding and margin */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling for the card */
+.card {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.card h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.output {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Styling for form and input */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: calc(100% - 100px);
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
